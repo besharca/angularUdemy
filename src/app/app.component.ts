@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'udemy-proj';
+  
+  recipeLink:boolean = true;
+  shoppingLink:boolean = false;
+
+  onShoppingNotify($event){
+    this.shoppingLink=$event;
+  }
+  
+  onRecipeNotify($event){
+    this.recipeLink=$event;
+  }
 }

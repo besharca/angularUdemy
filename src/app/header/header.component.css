@@ -1,0 +1,11 @@
+.dropdown:click>.dropdown-menu{
+    display: block;
+}
+
+.navbar-light {
+    background-color: #ccdce7;
+}
+
+.bottom-line {
+    border-bottom: 2px solid #a3c4da;
+}
