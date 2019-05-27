@@ -1,9 +1,13 @@
-<a (click)="selectedItem()" href="#" class="list-group-item clearfix">
+
+<a appHighlight [defaultColor]="'transparent'" [highlightColor]="'#ccdce7'" 
+    (click)="selectedItem()" [routerLink]="['/recipes',indexOfRecipe]"
+    class="list-group-item clearfix my-1 shadow-sm mb-1" 
+    style="cursor:pointer;">
     <div class="float-left">
-        <h4 class="list-group-item-heading text-truncate">{{recipe.name}}</h4>
+        <h4 class="list-group-item-heading text-truncate text-capitalize">{{recipe.name}}</h4>
         <p class="list-group-item-text text-truncate">{{recipe.description}}</p>
     </div>
     <span class="float-right">
         <img src="{{recipe.imagePath}}" alt="" class="img-responsive" style="max-height:100px; max-width: 133px;">
     </span>
-</a>
+</a> 

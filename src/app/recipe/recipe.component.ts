@@ -7,16 +7,12 @@ import { Recipe } from './recipe-list-edit/recipe-item/recipe.model';
   styleUrls: ['./recipe.component.css']
 })
 export class RecipeComponent implements OnInit {
-
-  itemSelectedLv3: Recipe;
+ 
 
   constructor() { }
 
   ngOnInit() {
   }
-
-  itemSelectedLv2($event){ 
-    this.itemSelectedLv3 = $event;
-  }
+ 
 
 }

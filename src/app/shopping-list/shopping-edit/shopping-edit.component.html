@@ -4,17 +4,21 @@
       <div class="row">
         <div class="col-sm-5 form-group">
           <label for="name">Name</label>
-          <input type="text" id="name"  class="form-control" name="name" [(ngModel)]="name">
+          <input type="text" id="name"  class="form-control" name="name" [(ngModel)]="name"
+          
+          >
         </div> 
         <div class="col-sm-2 form-group">
           <label for="amount">Amount</label>
-          <input type="number" min="1" id="amount" name="amount" class="form-control"  [(ngModel)]="amount">
+          <input type="number" min="1" id="amount" name="amount" class="form-control"  [(ngModel)]="amount"
+           
+          >
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <button class="btn btn-success" type="button" 
-            (click)="add(name,amount,$event);this.amount=1;this.name=''"
+            (click)="add(name,amount);this.amount=null;this.name=''"
             [disabled]="!(amount && name)" 
             >Add</button>
           <button class="btn btn-danger" type="button">Delete</button>

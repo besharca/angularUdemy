@@ -1,0 +1,13 @@
+.hr-primary{
+	height: 10px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #798E9C inset;
+	}
+	
+	#dropDwn:active {
+		background-color:#CCDDE8!important;
+	}
+
+	button {
+		font-size: smaller;
+	}

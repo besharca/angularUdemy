@@ -13,6 +13,13 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { HeaderComponent } from './header/header.component';
 import { IngredientItemComponent } from './shopping-list/ingredient-item/ingredient-item.component';
+import { HighlightDirective } from './zDirectives/highlight.directive';
+import { DropdownDirective } from './zDirectives/dropdown.directive';
+import { SelectedRecipe } from './services/selected-recipe.service';
+import { ShoppingServices } from './services/shopping-list.service';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,15 +31,19 @@ import { IngredientItemComponent } from './shopping-list/ingredient-item/ingredi
     ShoppingListComponent,
     ShoppingEditComponent,
     HeaderComponent,
-    IngredientItemComponent
+    IngredientItemComponent,
+    HighlightDirective,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule.forRoot(),
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule,
+    FontAwesomeModule
   ],
-  providers: [],
+  providers: [SelectedRecipe, ShoppingServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

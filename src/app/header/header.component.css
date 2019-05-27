@@ -1,11 +1,40 @@
 .dropdown:click>.dropdown-menu{
     display: block;
 }
-
-.navbar-light {
-    background-color: #ccdce7;
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(0, 0, 0)!important;
+    
+    font-weight: bold; 
+}
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #FAFDFF !important;
+    font-weight: bold; 
 }
 
 .bottom-line {
     border-bottom: 2px solid #a3c4da;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #FAFDFF !important;
+    font-weight: bold; 
+}
+
+.mainColor {
+    background-color: #798E9C!important; 
+}
+
+#brandIcon:hover {
+    color:black;
+}
+
+#navbarDropdownMenuLink {
+    cursor: pointer;
+}
+
+.dropdown-item {
+    cursor:pointer;
+}
+.dropdown-item:hover {
+    background-color: #CCDDE8!important;
 }

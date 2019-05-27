@@ -1,11 +1,18 @@
 .col-md-12 { 
     margin: 3px;
 }
-
-.list-group-item {
-    
-}
+ 
 
 .float-left {
     max-width: 50%;
+}
+/* 
+.row {
+    min-height: 100vh;
+} */
+
+@media(min-width:992px){
+    .row {
+        min-height: 100vh;
+    }
 }

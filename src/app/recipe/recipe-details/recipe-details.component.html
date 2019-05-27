@@ -1,32 +1,48 @@
-<div class="row">
-  <div class="col-md-12">
-    <img src="{{recipe.imagePath}}" alt="" class="img-responsive" style="max-width: 300px; min-width: 300px;">
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <h1> {{recipe.name}} </h1>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <div class="btn-group">
-      <button type="button" class="btn btn-primary dropdown-toggle">Manage Recipe <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-        <li><a href="#">To shopping list</a></li>
-        <li><a href="#">Edit recipe</a></li>
-        <li><a href="#">Delete recipe</a></li>
-      </ul>
+<div class="row justify-content-center">
+  <div class="col-10">
+    <div class="card shadow-lg p-3 mb-5 bg-white  ">
+      <img src="{{currentRecipe.selectedRecipe.imagePath}}" alt="" class="card-img-top">
+      <div class="card-body mx-0">
+        <h2 class="card-title text-center text-uppercase">
+          {{currentRecipe.selectedRecipe.name}}
+        </h2>
+        <hr class="hr-primary">
+        <p class="card-text text-capitalize mx-3 text-justify text">
+            &nbsp;&nbsp; {{currentRecipe.selectedRecipe.description}}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio hic accusamus laboriosam illum magnam,
+          reprehenderit nam doloremque at suscipit distinctio quaerat doloribus molestiae eos libero minima, modi nobis
+          explicabo aperiam!
+        </p>
+        <br>
+        <ul class="list-group" *ngFor="let ingredient of currentRecipe.selectedRecipe.ingredients">
+          <li class="list-group-item bg-light d-flex justify-content-between align-items-center text-capitalize"> {{ingredient.name}}
+            <span class="badge badge-secondary badge-pill">{{ingredient.amount}} </span>
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="successMessage">
+        <p class="mx-3">
+          <ngb-alert type="success" (close)="successMessage = null">
+            {{ successMessage }}
+          </ngb-alert>
+        </p>
+      </div>
+      <div class="card-footer bg-light text-center" *ngIf="!currentRecipe.errorButtonDisable">
+        <div>
+          <button ngbDropdown class="btn btn-secondary text-light dropdown" >
+            <div ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Manage Recipe
+            </div>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" id="dropDwn" (click)="addItems(currentRecipe.selectedRecipe.ingredients)">Add to shopping
+                list</a>
+              <a class="dropdown-item" id="dropDwn">Edit recipe</a>
+              <a class="dropdown-item" id="dropDwn">Delete recipe</a>
+            </div>
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    Description {{recipe.description}}
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    Ingredients  
   </div>
 </div>

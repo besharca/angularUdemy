@@ -1,25 +1,41 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { Recipe } from '../recipe-list-edit/recipe-item/recipe.model';
+import { Component, OnInit, Input, OnChanges } from '@angular/core'; 
+import { SelectedRecipe } from 'src/app/services/selected-recipe.service';
+import { ShoppingServices } from 'src/app/services/shopping-list.service';
+import { Ingredient } from 'src/app/shared/ingredient.model'; 
+
+
 
 @Component({
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.component.html',
-  styleUrls: ['./recipe-details.component.css']
+  styleUrls: ['./recipe-details.component.css'],
 })
 export class RecipeDetailsComponent implements OnInit, OnChanges {
 
-  @Input() recipe:Recipe; 
+  successMessage: string;
 
-  constructor() { 
-   
+  constructor(private currentRecipe:SelectedRecipe, private shopServ:ShoppingServices) {   
+    
   }
+ 
+  
 
   ngOnInit() {
-    this.recipe = new Recipe("bors","yummy",null);
   }
 
   ngOnChanges(){
     
+  }
+
+  addItems(items:Ingredient[]){
+    items.forEach((value)=>{
+
+      this.shopServ.ingredients.push(value);
+    })
+    this.successMessage = "Items have been added";
+    setInterval(()=>{
+      this.successMessage = null;
+    },5000)
   }
 
 }

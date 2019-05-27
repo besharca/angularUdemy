@@ -1,10 +1,10 @@
 <div class="row">
-  <div class="col-md-5">
-    <button class="btn btn-success">New Recipe</button>
+  <div class="col-lg-5 text-center">
+    <button class="btn btn-block btn-outline-secondary">New Recipe</button>
     <hr>
-    <app-recipe-list-edit (itemSelectedLv2)="itemSelectedLv2($event)"></app-recipe-list-edit>
+    <app-recipe-list-edit ></app-recipe-list-edit>
   </div>
-  <div class="col-md-7">
-    <app-recipe-details [recipe]="itemSelectedLv3"></app-recipe-details>
+  <div class="col-lg-7 pt-2">
+    <app-recipe-details></app-recipe-details>
   </div>
 </div>

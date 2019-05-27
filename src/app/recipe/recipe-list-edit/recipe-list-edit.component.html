@@ -1,5 +1,10 @@
 <div class="row">
-    <div class="col-md-12" *ngFor="let recipe of recipes">
-        <app-recipe-item [recipe]="recipe" (itemSelected)="itemSelectedLv1($event)"></app-recipe-item>
+    <div class="col-md-12">
+        <ul class="list-group list-unstyled ">
+            <li  *ngFor="let recipe of recipeServices.recipes; index as i">
+                <app-recipe-item [recipe]="recipe" [indexOfRecipe]="i"></app-recipe-item>
+            </li>
+        </ul>
+
     </div>
 </div>

@@ -1,26 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-light bottom-line">
+<nav class="navbar navbar-expand-lg navbar-dark bottom-line mainColor">
 
-  <a href="#" class="navbar-brand">Recipie Book</a>
+  <a routerLink="/" class="navbar-brand" >
+    <fa-icon [icon]="faBookOpen" size="2x" id="brandIcon"></fa-icon>
+  </a>
 
-  <div class="navbar navbar-expand-sm navbar-light">
+  <div class="navbar navbar-expand-sm navbar-dark mainColor">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a href="#" class="nav-link" (click)="onClickRecipe()">Recipies</a>
+      <li class="nav-item">
+        <a class="nav-link " routerLink="/recipes" routerLinkActive="active">Recipies</a>
       </li>
-      <li class="nav-item active">
-        <a href="#" class="nav-link" (click)="onClickShopping()">Shopping List</a>
+      <li class="nav-item">
+        <a routerLink="/list" routerLinkActive="active" class="nav-link">Shopping List</a>
       </li>
 
       <li ngbDropdown class="nav-item dropdown">
-        <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           Manage
         </a>
         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Save Data</a>
-          <a class="dropdown-item" href="#">Fetch Data</a>
+          <a class="dropdown-item"  >Save Data</a>
+          <a class="dropdown-item" >Fetch Data</a>
         </div>
       </li>
+
     </ul>
   </div>
 </nav>
+
+ 
+
