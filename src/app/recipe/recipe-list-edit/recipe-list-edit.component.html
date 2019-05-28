@@ -1,10 +1,18 @@
 <div class="row">
     <div class="col-md-12">
-        <ul class="list-group list-unstyled ">
-            <li  *ngFor="let recipe of recipeServices.recipes; index as i">
-                <app-recipe-item [recipe]="recipe" [indexOfRecipe]="i"></app-recipe-item>
+        <ul class="list-group list-unstyled text-dark ">
+            <li  *ngFor="let recipe of recipeServices.recipes 
+            | paginate: { itemsPerPage: 5, currentPage: currentPage }; let i = index; ">
+                <app-recipe-item [recipe]="recipe"
+                 [indexOfRecipe]="this.getIndex(i)"
+                 [routePage]="currentPag"
+                 >
+                </app-recipe-item>
             </li>
-        </ul>
-
+        </ul>  
+        <div class="m-2 pr-5"> 
+            <pagination-controls  
+             (pageChange)="currentPage = $event" class="my-pagination"></pagination-controls>
+        </div>
     </div>
 </div>

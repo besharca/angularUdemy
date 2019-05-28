@@ -11,7 +11,9 @@ import { Ingredient } from 'src/app/shared/ingredient.model';
 })
 export class RecipeItemComponent implements OnInit {
   @Input()
-  indexOfRecipe: number;
+  indexOfRecipe: number=0;
+  @Input()
+  routePage: number;
 
   @Input()
   recipe: Recipe;

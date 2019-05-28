@@ -10,6 +10,33 @@ export class SelectedRecipe {
 
     constructor(){
         this.recipes.push(new Recipe("fried potatoes potatoes", "verry yummy",
+         "https://drop.ndtv.com/albums/COOKS/pasta-vegetarian/pastaveg_640x480.jpg"
+         ,[new Ingredient("Potatoes",5), new Ingredient("oil",1)]));
+        this.recipes.push(new Recipe("fried potatoes potatoes", "verry yummy",
+         "https://www.seriouseats.com/recipes/images/2016/01/20160113-honey-butter-chips-vicky-wasik-7-1500x1125.jpg"
+         ,[new Ingredient("Potatoes",5), new Ingredient("oil",1)]));
+        this.recipes.push(new Recipe("fried potatoes potatoes", "verry yummy",
+         "https://www.seriouseats.com/recipes/images/2016/01/20160113-honey-butter-chips-vicky-wasik-7-1500x1125.jpg"
+         ,[new Ingredient("Potatoes",5), new Ingredient("oil",1)]));
+        this.recipes.push(new Recipe("fried potatoes potatoes", "verry yummy",
+         "https://www.seriouseats.com/recipes/images/2016/01/20160113-honey-butter-chips-vicky-wasik-7-1500x1125.jpg"
+         ,[new Ingredient("Potatoes",5), new Ingredient("oil",1)]));
+        this.recipes.push(new Recipe("fried potatoes potatoes", "verry yummy",
+         "https://www.seriouseats.com/recipes/images/2016/01/20160113-honey-butter-chips-vicky-wasik-7-1500x1125.jpg"
+         ,[new Ingredient("Potatoes",5), new Ingredient("oil",1)]));
+        this.recipes.push(new Recipe("fried potatoes potatoes", "verry yummy",
+         "https://www.seriouseats.com/recipes/images/2016/01/20160113-honey-butter-chips-vicky-wasik-7-1500x1125.jpg"
+         ,[new Ingredient("Potatoes",5), new Ingredient("oil",1)]));
+        this.recipes.push(new Recipe("fried potatoes potatoes", "verry yummy",
+         "https://www.seriouseats.com/recipes/images/2016/01/20160113-honey-butter-chips-vicky-wasik-7-1500x1125.jpg"
+         ,[new Ingredient("Potatoes",5), new Ingredient("oil",1)]));
+        this.recipes.push(new Recipe("fried potatoes potatoes", "verry yummy",
+         "https://www.seriouseats.com/recipes/images/2016/01/20160113-honey-butter-chips-vicky-wasik-7-1500x1125.jpg"
+         ,[new Ingredient("Potatoes",5), new Ingredient("oil",1)]));
+        this.recipes.push(new Recipe("fried potatoes potatoes", "verry yummy",
+         "https://www.seriouseats.com/recipes/images/2016/01/20160113-honey-butter-chips-vicky-wasik-7-1500x1125.jpg"
+         ,[new Ingredient("Potatoes",5), new Ingredient("oil",1)]));
+        this.recipes.push(new Recipe("fried potatoes potatoes", "verry yummy",
          "https://www.seriouseats.com/recipes/images/2016/01/20160113-honey-butter-chips-vicky-wasik-7-1500x1125.jpg"
          ,[new Ingredient("Potatoes",5), new Ingredient("oil",1)]));
         this.recipes.push(new Recipe("fried chinken", "verry  verry yummy", 

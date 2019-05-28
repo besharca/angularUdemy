@@ -20,6 +20,7 @@ import { ShoppingServices } from './services/shopping-list.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NgbModule.forRoot(),
     FormsModule,
     AngularFontAwesomeModule,
-    FontAwesomeModule
+    FontAwesomeModule ,
+    NgxPaginationModule
   ],
   providers: [SelectedRecipe, ShoppingServices],
   bootstrap: [AppComponent]

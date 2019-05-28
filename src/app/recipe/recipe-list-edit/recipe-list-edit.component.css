@@ -16,3 +16,7 @@
         min-height: 100vh;
     }
 }
+ 
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #798E9C;
+  }

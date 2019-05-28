@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Recipe } from './recipe-item/recipe.model'; 
+import { Component, OnInit } from '@angular/core';
 import { SelectedRecipe } from 'src/app/services/selected-recipe.service';
+import { ActivatedRoute,  Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-list-edit',
@@ -8,12 +8,19 @@ import { SelectedRecipe } from 'src/app/services/selected-recipe.service';
   styleUrls: ['./recipe-list-edit.component.css']
 })
 export class RecipeListEditComponent implements OnInit {
-  
-  constructor(private recipeServices:SelectedRecipe) {
-    
- }
+  itemsPerPage: number = 5;
+  currentPage: number = 1;
+
+  constructor(private recipeServices: SelectedRecipe,
+    private route: ActivatedRoute, private router:Router ) { 
+  }
 
   ngOnInit() {
   }
- 
+
+  getIndex(indexOnPage: number): number {
+    
+    return this.itemsPerPage * (this.currentPage - 1) + indexOnPage;
+  }
+
 }
