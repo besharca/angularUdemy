@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { SelectedRecipe } from 'src/app/services/selected-recipe.service';
 import { ShoppingServices } from 'src/app/services/shopping-list.service';
 import { Ingredient } from 'src/app/shared/ingredient.model'; 
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 
@@ -14,7 +15,14 @@ export class RecipeDetailsComponent implements OnInit, OnChanges {
 
   successMessage: string;
 
-  constructor(private currentRecipe:SelectedRecipe, private shopServ:ShoppingServices) {   
+  indexOfRecipe:number;
+
+  constructor(private currentRecipe:SelectedRecipe, private shopServ:ShoppingServices,
+    private route: Router, private activRouter: ActivatedRoute) {   
+    this.indexOfRecipe = +this.activRouter.snapshot.params["id"];
+    this.activRouter.params.subscribe((routeParams)=>{
+      this.indexOfRecipe=(+routeParams.id);
+    })
     
   }
  

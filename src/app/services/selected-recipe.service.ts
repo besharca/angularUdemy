@@ -5,8 +5,6 @@ import { Ingredient } from '../shared/ingredient.model';
 export class SelectedRecipe {
 
     recipes: Recipe[] = []; 
-    selectedRecipe:Recipe;
-    errorButtonDisable:boolean = false;
 
     constructor(){
         this.recipes.push(new Recipe("fried potatoes potatoes", "verry yummy",
@@ -45,7 +43,6 @@ export class SelectedRecipe {
         this.recipes.push(new Recipe("fried chinken", "verry  verry yummy",
          "https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/recipe-image-legacy-id-1074500_11.jpg"
          ,[]));
-        this.selectedRecipe = this.recipes[0];
     }
 
 }
