@@ -21,6 +21,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { SelectARecipeComponent } from './recipe/select-a-recipe/select-a-recipe.component';
+import { NewRecipeComponent } from './recipe/new-recipe/new-recipe.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     HeaderComponent,
     IngredientItemComponent,
     HighlightDirective,
-    DropdownDirective
+    DropdownDirective,
+    SelectARecipeComponent,
+    NewRecipeComponent
   ],
   imports: [
     BrowserModule,
