@@ -1,0 +1,24 @@
+.hr-primary{
+	height: 10px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #798E9C inset;
+	}
+
+	
+
+input.ng-touched.ng-invalid {
+    border: 1px red solid;
+}
+
+input.ng-touched.ng-valid {
+    border: 1px green solid;
+}
+
+
+textarea.ng-touched.ng-invalid {
+    border: 1px red solid;
+}
+
+textarea.ng-touched.ng-valid {
+    border: 1px green solid;
+}

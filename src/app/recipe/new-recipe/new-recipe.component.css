@@ -3,3 +3,23 @@
 	border: 0;
 	box-shadow: 0 10px 10px -10px #798E9C inset;
 	}
+
+input.ng-invalid.ng-touched.markedInput{
+	border: 1px red solid!important;
+}
+
+input.ng-valid.ng-touched.markedInput {
+	border: 1px green solid;
+}
+
+textarea.ng-valid.ng-touched.markedInput {
+	border: 1px green solid;
+}
+
+textarea.ng-invalid.ng-touched.markedInput {
+	border: 1px red solid!important;
+}
+
+button[disabled]:hover {
+    cursor: not-allowed! important;
+}

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from "@angular/forms"; 
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component'; 
@@ -23,6 +23,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { SelectARecipeComponent } from './recipe/select-a-recipe/select-a-recipe.component';
 import { NewRecipeComponent } from './recipe/new-recipe/new-recipe.component';
+import { EditRecipeComponent } from './recipe/edit-recipe/edit-recipe.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NewRecipeComponent } from './recipe/new-recipe/new-recipe.component';
     HighlightDirective,
     DropdownDirective,
     SelectARecipeComponent,
-    NewRecipeComponent
+    NewRecipeComponent,
+    EditRecipeComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { NewRecipeComponent } from './recipe/new-recipe/new-recipe.component';
     FormsModule,
     AngularFontAwesomeModule,
     FontAwesomeModule ,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule
   ],
   providers: [SelectedRecipe, ShoppingServices],
   bootstrap: [AppComponent]

@@ -15,7 +15,6 @@ import { Recipe } from '../recipe-list-edit/recipe-item/recipe.model';
 export class RecipeDetailsComponent implements OnInit, OnChanges {
 
   successMessage: string;
-
   indexOfRecipe: number;
 
   currentRecipe: Recipe;
@@ -37,8 +36,7 @@ export class RecipeDetailsComponent implements OnInit, OnChanges {
     }
 
   }
-
-
+ 
 
   ngOnInit() {
   }

@@ -22,7 +22,7 @@ export class IngredientItemComponent implements OnInit {
   }
   
   selectedIngredient(){
-    
+    this.shopServ.editedIngredient.next(this.ingredientIndex);
   }
 
 }

@@ -4,3 +4,9 @@ h4, p {
     text-overflow: ellipsis;
     max-width: 145px;
   }
+
+  .active {
+    background: #CCDDE8!important;
+    border-color: #CCDDE8!important;
+    font-weight: bold!important;
+  }

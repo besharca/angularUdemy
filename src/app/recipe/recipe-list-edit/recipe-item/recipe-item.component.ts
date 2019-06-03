@@ -17,6 +17,9 @@ export class RecipeItemComponent implements OnInit {
 
   @Input()
   recipe: Recipe;
+
+  
+  fallbackImage:string = '../../../assets/images/image-not-found.jpg';
  
 
   constructor(private currentRecipe: SelectedRecipe,

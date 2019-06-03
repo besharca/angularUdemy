@@ -14,7 +14,7 @@ export class SelectedRecipe {
          "https://www.seriouseats.com/recipes/images/2016/01/20160113-honey-butter-chips-vicky-wasik-7-1500x1125.jpg"
          ,[new Ingredient("Potatoes",5), new Ingredient("oil",1)]));
         this.recipes.push(new Recipe("fried potatoes potatoes", "verry yummy",
-         "https://www.seriouseats.com/recipes/images/2016/01/20160113-honey-butter-chips-vicky-wasik-7-1500x1125.jpg"
+         "https://www.seriouseas.com/recipes/images/2016/01/20160113-honey-butter-chips-vicky-wasik-7-1500x1125.jpg"
          ,[new Ingredient("Potatoes",5), new Ingredient("oil",1)]));
         this.recipes.push(new Recipe("fried potatoes potatoes", "verry yummy",
          "https://www.seriouseats.com/recipes/images/2016/01/20160113-honey-butter-chips-vicky-wasik-7-1500x1125.jpg"

@@ -7,23 +7,43 @@
         </h2>
         <hr class="hr-primary">
         <!-- form  -->
-        <form class="form-horizontal" id="newform">
+        <form class="form-horizontal" id="newform" #newForm="ngForm" (ngSubmit)="onSubmit()">
+          
           <div class="row justify-content-center mb-2">
-            <div class="col-md-12">
+            <div  class="col-md-12">
               <div class="form-group">
-                <div class="input-group mb-1 mr-sm-n1">
-                  <input type="text" name="name" class="form-control-lg w-100" id="name" placeholder="Recipe Name"
-                    autofocus [(ngModel)]="recipeName">
+                <div class="input-group mb-1 mr-sm-n1 ">
+                  <input type="text" 
+                  name="name"
+                  class="form-control-lg w-100 markedInput"
+                  id="name" 
+                  placeholder="Recipe Name"
+                  autofocus ngModel required
+                  #nameInput="ngModel">
+                    <span class="help-block text-danger" 
+                    *ngIf="nameInput.invalid && nameInput.touched">
+                    Please select a recipe title!
+                    </span>
                 </div>
               </div>
             </div>
           </div>
+
           <div class="row justify-content-center mb-2">
             <div class="col-md-12">
               <div class="form-group">
                 <div class="input-group mb-1 mr-sm-n1">
-                  <input type="text" name="image" class="form-control-lg w-100" id="image" placeholder="Recipe Image URL"
-                    autofocus [(ngModel)]="recipeImage">
+                  <input type="text" 
+                  name="image" 
+                  class="form-control-lg w-100 markedInput" 
+                  id="image" 
+                  placeholder="Recipe Image URL"
+                  autofocus ngModel required
+                  #imageInput="ngModel">
+                  <span class="help-block text-danger"
+                  *ngIf="imageInput.invalid && imageInput.touched">
+                    Please select an image adress for the recipe!
+                  </span>
                 </div>
               </div>
             </div>
@@ -33,9 +53,16 @@
             <div class="col-md-12">
               <div class="form-group">
                 <div class="input-group mb-1 mr-sm-1">
-                  <textarea form="newform" name="description" class="form-control" id="description"
-                    placeholder="Description" autofocus rows="4" [(ngModel)]="recipeDescription"></textarea>
+                  <textarea form="newform" 
+                  name="description" 
+                  class="form-control markedInput" 
+                  id="description"
+                  placeholder="Description" 
+                  autofocus rows="4" 
+                  ngModel required #descriptionInput="ngModel"></textarea>
                 </div>
+                <span class="help-block text-danger" *ngIf="descriptionInput.invalid && descriptionInput.touched"
+                  >Please fill out a description for the recipe</span>
               </div>
             </div>
           </div>
@@ -44,7 +71,7 @@
             <div class="col-sm-12">
               <ul class="list-group" >
                   <li class="list-group-item bg-light d-flex justify-content-between align-items-center text-capitalize"
-                  *ngFor="let ingredient of recipeIngredients;index as i"><span class="badge badge-secondary badge-pill">{{ingredient.amount}} </span>
+                  *ngFor="let ingredient of newRecipeIngredients;index as i"><span class="badge badge-secondary badge-pill">{{ingredient.amount}} </span>
                   {{ingredient.name}}
                      <a (click)="removeIngredient(i)" class="badge badge-secondary badge-pill text-white"><i class="fa fa-close"></i></a> 
                     </li>
@@ -57,16 +84,18 @@
           <div class="row justify-content-center">
             <div class="col-sm-12 ">
               <!-- add ingredient button -->
+              <!-- (click)="addIngredient(ingredientName.value,ingredientAmount.value);
+              ingredientName.value='';ingredientAmount.value=1;" -->
               <button class="btn btn-secondary btn-block my-2"
-              (click)="addIngredient(ingredientName.value,ingredientAmount.value);
-              ingredientName.value='';ingredientAmount.value=1;">Add ingredient</button>
+              (click)="addIngredient(ingredientName,ingredientAmount)"
+               type="button">Add ingredient</button>
             </div>
           </div>
           <div class="row">
             <div class="col-8">
               <div class="form-group has-danger w-100">
                 <div class="input-group mb-1 mr-sm-1 ">
-                  <input  #ingredientName
+                  <input  #ingredientName="ngModel" ngModel
                   type="text" name="ingredient" class="form-control" id="ingredient"
                     placeholder="New ingredient">
                 </div>
@@ -75,15 +104,30 @@
             <div class="col-4">
               <div class="form-group has-danger">
                 <div class="input-group mb-1 mr-sm-0 ">
-                  <input #ingredientAmount
-                  type="number" name="amount" class="form-control w-100" id="amount" value="1" min="1">
+                  <input #ingredientAmount="ngModel" [ngModel]="'1'"
+                  type="number" name="amount" 
+                  class="form-control w-100" id="amount" min="1">
                 </div>
               </div>
             </div>
           </div>
           <hr>
+          <span class="help-block text-danger" *ngIf="noIngredient">Recipe must have at least one ingredient!</span>
+          
+          <div *ngIf="successMessage" class="row">
+            <div class="col-sm-12">
+              <p class="mx-0">
+              <ngb-alert type="success" (close)="successMessage = null">
+                {{ successMessage }}
+              </ngb-alert>
+            </p>
+            </div>
+          </div>
           <!-- create recipe button -->
-         <button  class="btn btn-outline-secondary btn-block" (click)="createRecipe()">Create recipe</button>
+         <button  
+         class="btn btn-outline-secondary btn-block mt-4" 
+         type="submit"
+         [disabled]="newForm.invalid">Create recipe</button>
         </form>
         <!-- form end -->
         <br>
