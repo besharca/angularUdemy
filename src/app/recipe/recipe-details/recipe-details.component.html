@@ -10,9 +10,6 @@
         <hr class="hr-primary">
         <p class="card-text text-capitalize mx-3 text-justify text">
             &nbsp;&nbsp; {{currentRecipe.description}}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio hic accusamus laboriosam illum magnam,
-          reprehenderit nam doloremque at suscipit distinctio quaerat doloribus molestiae eos libero minima, modi nobis
-          explicabo aperiam!
         </p>
         <br>
         <ul class="list-group" *ngFor="let ingredient of currentRecipe.ingredients">
@@ -28,7 +25,7 @@
           </ngb-alert>
         </p>
       </div>
-      <div class="card-footer bg-light text-center" *ngIf="!currentRecipe.errorButtonDisable">
+      <div class="card-footer bg-light text-center" *ngIf="showButton">
         <div>
           <button ngbDropdown class="btn btn-secondary text-light dropdown" >
             <div ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -39,7 +36,7 @@
               <a class="dropdown-item" id="dropDwn" (click)="addItems(currentRecipe.ingredients)">Add to shopping
                 list</a>
               <a class="dropdown-item" id="dropDwn" [routerLink]="['/recipes',indexOfRecipe, 'edit']">Edit recipe</a>
-              <a class="dropdown-item" id="dropDwn">Delete recipe</a>
+              <a class="dropdown-item" id="dropDwn" (click)="deleteRecipie()">Delete recipe</a>
             </div>
           </button>
         </div>

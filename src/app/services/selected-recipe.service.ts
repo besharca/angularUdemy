@@ -1,9 +1,11 @@
 import { Recipe } from '../recipe/recipe-list-edit/recipe-item/recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
+import { Subject } from 'rxjs';
 
 
 export class SelectedRecipe {
 
+    
     recipes: Recipe[] = []; 
 
     constructor(){
