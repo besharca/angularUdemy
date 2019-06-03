@@ -24,6 +24,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { SelectARecipeComponent } from './recipe/select-a-recipe/select-a-recipe.component';
 import { NewRecipeComponent } from './recipe/new-recipe/new-recipe.component';
 import { EditRecipeComponent } from './recipe/edit-recipe/edit-recipe.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EditRecipeComponent } from './recipe/edit-recipe/edit-recipe.component'
     DropdownDirective,
     SelectARecipeComponent,
     NewRecipeComponent,
-    EditRecipeComponent
+    EditRecipeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

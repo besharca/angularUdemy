@@ -17,7 +17,6 @@ export class EditRecipeComponent implements OnInit {
 
   recipeIndex:number;
   ingredients:Ingredient[];
-  recipeImage:string;
 
 
   form:FormGroup;
@@ -30,7 +29,6 @@ export class EditRecipeComponent implements OnInit {
     this.recipeIndex = +this.activeRoute.snapshot.params['id'];
     this.editedRecipe = this.recipeServ.recipes[this.recipeIndex]; 
     this.ingredients = this.editedRecipe.ingredients.slice();
-    this.recipeImage = this.editedRecipe.imagePath.slice();
     
     
     this.form = new FormGroup({

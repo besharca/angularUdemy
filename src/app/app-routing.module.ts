@@ -6,6 +6,7 @@ import { RecipeDetailsComponent } from './recipe/recipe-details/recipe-details.c
 import { SelectARecipeComponent } from './recipe/select-a-recipe/select-a-recipe.component';
 import { NewRecipeComponent } from './recipe/new-recipe/new-recipe.component';
 import { EditRecipeComponent } from './recipe/edit-recipe/edit-recipe.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'recipes', pathMatch:'full'},
@@ -16,6 +17,7 @@ const routes: Routes = [
     {path:':id/edit', component:EditRecipeComponent},
   ]}, 
   {path:'list', component:ShoppingListComponent},
+  {path:'**', component:PageNotFoundComponent},
 ];
 
 @NgModule({

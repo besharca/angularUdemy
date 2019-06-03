@@ -11,7 +11,7 @@ input.ng-touched.ng-invalid {
 }
 
 input.ng-touched.ng-valid {
-    border: 1px green solid;
+    border: 1px rgb(20, 238, 20) solid;
 }
 
 
@@ -20,5 +20,5 @@ textarea.ng-touched.ng-invalid {
 }
 
 textarea.ng-touched.ng-valid {
-    border: 1px green solid;
+    border: 1px rgb(20, 238, 20) solid;
 }
