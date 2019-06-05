@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute,  Router } from '@angular/router';
 import { SelectedRecipe } from 'src/app/services/selected-recipe.service';
 import { Recipe } from '../recipe-list-edit/recipe-item/recipe.model';
@@ -38,6 +38,7 @@ export class EditRecipeComponent implements OnInit {
     })
     
   }
+
 
   removeIngredient(i:number){
     this.ingredients.splice(i,1);

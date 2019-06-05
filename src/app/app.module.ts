@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"; 
+import { HttpClientModule } from "@angular/common/http"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component'; 
@@ -25,6 +26,8 @@ import { SelectARecipeComponent } from './recipe/select-a-recipe/select-a-recipe
 import { NewRecipeComponent } from './recipe/new-recipe/new-recipe.component';
 import { EditRecipeComponent } from './recipe/edit-recipe/edit-recipe.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AtestComponentComponent } from './atest-component/atest-component.component';
+import { HttpRecipe } from './services/http-recipe.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     SelectARecipeComponent,
     NewRecipeComponent,
     EditRecipeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AtestComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +56,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AngularFontAwesomeModule,
     FontAwesomeModule ,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [SelectedRecipe, ShoppingServices],
+  providers: [SelectedRecipe, ShoppingServices,HttpRecipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

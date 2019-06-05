@@ -2,7 +2,7 @@
   <div class="col-10">
     <div class="card shadow-lg p-3 mb-5 bg-white  ">
       <div class="card-body mx-0">
-        <img [src]="imgPath.value" alt="" class="card-img-top">
+        <img [src]="imgPath.value" alt=""  class="card-img-top" #imgElement>
         <!-- form  -->
         <form class="form-horizontal mt-4" [formGroup]="form" (ngSubmit)="onSubmit()">
 

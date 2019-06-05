@@ -7,8 +7,11 @@ import { SelectARecipeComponent } from './recipe/select-a-recipe/select-a-recipe
 import { NewRecipeComponent } from './recipe/new-recipe/new-recipe.component';
 import { EditRecipeComponent } from './recipe/edit-recipe/edit-recipe.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AtestComponentComponent } from './atest-component/atest-component.component';
+import { HttpRecipe } from './services/http-recipe.service';
 
 const routes: Routes = [
+  {path:'test', component:AtestComponentComponent, resolve:{recipeList:HttpRecipe}},
   {path:'', redirectTo:'recipes', pathMatch:'full'},
   {path:'recipes', component:RecipeComponent, children:[
     {path:'', component:SelectARecipeComponent},
