@@ -1,12 +1,12 @@
 .dropdown:click>.dropdown-menu{
     display: block;
 }
-.navbar-dark .navbar-nav .nav-link {
+.navbar-dark .navbar-nav .nav-link, .login {
     color: rgb(0, 0, 0)!important;
     
     font-weight: bold; 
 }
-.navbar-dark .navbar-nav .nav-link.active {
+.navbar-dark .navbar-nav .nav-link.active, login {
     color: #FAFDFF !important;
     font-weight: bold; 
 }
@@ -38,3 +38,10 @@
 .dropdown-item:hover {
     background-color: #CCDDE8!important;
 }
+
+#loginForm {
+    color: rgb(0, 0, 0)!important;
+    font-weight: bold;
+}
+
+

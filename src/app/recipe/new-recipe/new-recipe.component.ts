@@ -3,6 +3,7 @@ import { Ingredient } from 'src/app/shared/ingredient.model';
 import { Recipe } from '../recipe-list-edit/recipe-item/recipe.model';
 import { SelectedRecipe } from 'src/app/services/selected-recipe.service';
 import { NgForm, NgModel } from '@angular/forms';
+import { HttpRecipe } from 'src/app/services/http-recipe.service';
 
 @Component({
   selector: 'app-new-recipe',
@@ -15,60 +16,63 @@ export class NewRecipeComponent implements OnInit {
   newForm: NgForm;
 
   @ViewChild('nameInput')
-  nameInput:NgModel
+  nameInput: NgModel
 
   newRecipe: Recipe;
   newRecipeIngredients: Ingredient[] = [];
-  noIngredient:boolean = false;
-  successMessage:string = '';
+  noIngredient: boolean = false;
+  successMessage: string = '';
 
 
-  constructor(private recipeServ: SelectedRecipe) {  }
+  constructor(private recipeServ: SelectedRecipe, private httpRecipes: HttpRecipe) { }
 
   ngOnInit() {
-    this.nameInput.valueChanges.subscribe(()=>{
-      console.log(this.nameInput.value);
-    });
   }
 
-  
 
-  addIngredient(ingredientInput:NgModel, ingredientAmountInput:NgModel)
-  {
-      if (ingredientInput.value && 
-        ingredientAmountInput.value && 
-        ingredientAmountInput.value > 0)
-      {
-       this.newRecipeIngredients.push(new Ingredient(ingredientInput.value, ingredientAmountInput.value));
-       ingredientInput.reset();
-       ingredientAmountInput.reset('1');  
-      }
-    
+
+  addIngredient(ingredientInput: NgModel, ingredientAmountInput: NgModel) {
+    if (ingredientInput.value &&
+      ingredientAmountInput.value &&
+      ingredientAmountInput.value > 0) {
+      this.newRecipeIngredients.push(new Ingredient(ingredientInput.value, ingredientAmountInput.value));
+      ingredientInput.reset();
+      ingredientAmountInput.reset('1');
+    }
+
   }
 
- 
+
   removeIngredient(i: number) {
     this.newRecipeIngredients.splice(i, 1);
   }
 
   onSubmit() {
-    console.log(this.newForm);
-    if(this.newRecipeIngredients.length<1){
+
+
+    if (this.newRecipeIngredients.length < 1) {
       this.noIngredient = true;
-    }else{
+    } else {
       this.noIngredient = false;
-      this.recipeServ.recipes.push(this.extractRecipe());
+
+      this.httpRecipes.postRecipe(this.extractRecipe()).subscribe(
+        () => {
+          this.successMessage = "Recipe has been created successfully";
+          setInterval(() => {
+            this.successMessage = null;
+          }, 5000)
+          this.httpRecipes.refreshStaticRecipes();
+        }
+      );
+
       this.newForm.reset();
       this.newRecipeIngredients = [];
-      this.successMessage = "Recipe has been created successfully";
-    setInterval(() => {
-      this.successMessage = null;
-    }, 5000)
+
     }
   }
 
-  extractRecipe():Recipe{
-    let recipe:Recipe = new Recipe(null,null,null,null);
+  extractRecipe(): Recipe {
+    let recipe: Recipe = new Recipe(null, null, null, null);
     recipe.name = this.newForm.value.name;
     recipe.imagePath = this.newForm.value.image;
     recipe.description = this.newForm.value.description;

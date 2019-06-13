@@ -28,6 +28,11 @@ import { EditRecipeComponent } from './recipe/edit-recipe/edit-recipe.component'
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AtestComponentComponent } from './atest-component/atest-component.component';
 import { HttpRecipe } from './services/http-recipe.service';
+import { LoginComponent } from './header/login/login.component';
+import { UserDetailsComponent } from './header/user-details/user-details.component';
+import { ResolvedRecipes } from './services/resolved-recipes.model';
+import { ServerErrorComponent } from './server-error/server-error.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,11 @@ import { HttpRecipe } from './services/http-recipe.service';
     NewRecipeComponent,
     EditRecipeComponent,
     PageNotFoundComponent,
-    AtestComponentComponent
+    AtestComponentComponent,
+    LoginComponent,
+    UserDetailsComponent,
+    ServerErrorComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +68,7 @@ import { HttpRecipe } from './services/http-recipe.service';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [SelectedRecipe, ShoppingServices,HttpRecipe],
+  providers: [SelectedRecipe, ShoppingServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,27 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpRecipe } from '../services/http-recipe.service';
-import { Recipe } from '../recipe/recipe-list-edit/recipe-item/recipe.model'; 
-import { ActivatedRoute } from '@angular/router';
-
+ 
+import { Component, OnInit, ViewChild } from '@angular/core';   
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-atest-component',
   templateUrl: './atest-component.component.html',
   styleUrls: ['./atest-component.component.css']
 })
-export class AtestComponentComponent implements OnInit {
+export class AtestComponentComponent   {
+  
+constructor(private http:HttpClient){
 
+}
 
-  recipes:Recipe[];
+readonly URL:string = "http://localhost:8080/secured/recipes"; 
 
-
-  constructor(private httpRecipeServ: HttpRecipe, private route: ActivatedRoute) { 
-    this.recipes = this.route.snapshot.data['recipeList'];
-   }
-
-  ngOnInit() {
-    // this.httpRecipeServ.getRecipes().subscribe((value:Recipe[])=>{
-    //   this.recipes = value;
-    // });
-  }
+fire(){
+    
+  this.http.get(this.URL, {headers:new HttpHeaders({"Authorization":"Token eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJEb2ciLCJ1c2VySWQiOiIxIiwicm9sZSI6IkFETUlOIn0.7S3vXqvQ2iQlHbkYgt2o_Y-2DNTrkGmwfu5uSLIyl0v3zfOFJnXjFAJYX0J4LDHIOvQe1b_IrI_BlRejQIB4Pw"})})
+  .subscribe((response=>{
+    console.log(response);
+  }));
+}
 
 }

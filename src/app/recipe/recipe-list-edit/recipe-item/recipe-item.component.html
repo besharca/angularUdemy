@@ -1,12 +1,12 @@
 
 <a appHighlight [defaultColor]="'transparent'" [highlightColor]="'#ccdce7'" 
-     [routerLink]="['/recipes',   indexOfRecipe]"
+     [routerLink]="['/recipes',   recipe.id]"
      routerLinkActive="active"
     class="list-group-item clearfix my-2 shadow-sm mb-1 text-dark" 
     style="cursor:pointer;">
     <div class="float-left">
-        <h4 class="list-group-item-heading text-truncate text-capitalize">{{recipe.name}}</h4>
-        <p class="list-group-item-text text-truncate">{{recipe.description}}</p>
+        <h3 class="list-group-item-heading text-truncate text-capitalize text-left">{{recipe.name}}</h3>
+        <p class="list-group-item-text text-truncate text-capitalize text-left">{{recipe.description | lowercase}}</p>
     </div>
     <span class="float-right">
         <img src="{{recipe.imagePath}}" alt="" 

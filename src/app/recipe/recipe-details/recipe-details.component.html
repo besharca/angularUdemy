@@ -33,9 +33,9 @@
               Manage Recipe
             </div>
             <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" id="dropDwn" (click)="addItems(currentRecipe.ingredients)">Add to shopping
+              <a class="dropdown-item" id="dropDwn" (click)="addItems()">Add to shopping
                 list</a>
-              <a class="dropdown-item" id="dropDwn" [routerLink]="['/recipes',indexOfRecipe, 'edit']">Edit recipe</a>
+              <a class="dropdown-item" id="dropDwn" [routerLink]="['/recipes',idOfRecipe, 'edit']">Edit recipe</a>
               <a class="dropdown-item" id="dropDwn" (click)="deleteRecipie()">Delete recipe</a>
             </div>
           </button>

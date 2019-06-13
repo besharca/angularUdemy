@@ -4,6 +4,7 @@ import { SelectedRecipe } from 'src/app/services/selected-recipe.service';
 import { Recipe } from '../recipe-list-edit/recipe-item/recipe.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Ingredient } from 'src/app/shared/ingredient.model'; 
+import { HttpRecipe } from 'src/app/services/http-recipe.service';
 
 @Component({
   selector: 'app-edit-recipe',
@@ -15,7 +16,7 @@ export class EditRecipeComponent implements OnInit {
   //has array reference 
   editedRecipe:Recipe;
 
-  recipeIndex:number;
+  recipeId:number;
   ingredients:Ingredient[];
 
 
@@ -23,11 +24,13 @@ export class EditRecipeComponent implements OnInit {
 
   constructor(private activeRoute:ActivatedRoute, 
     private recipeServ:SelectedRecipe,
-    private route:Router) { }
+    private route:Router,
+    private httpRecipes:HttpRecipe) { }
 
   ngOnInit() {
-    this.recipeIndex = +this.activeRoute.snapshot.params['id'];
-    this.editedRecipe = this.recipeServ.recipes[this.recipeIndex]; 
+    this.recipeId = +this.activeRoute.snapshot.params['id'];
+    this.editedRecipe = this.httpRecipes.displayRecipeById(this.recipeId);
+
     this.ingredients = this.editedRecipe.ingredients.slice();
     
     
@@ -50,9 +53,17 @@ export class EditRecipeComponent implements OnInit {
         this.form.value.name,
         this.form.value.description,
         this.form.value.imgUrl,
-        this.ingredients
-      )
-      this.recipeServ.recipes[this.recipeIndex] = updatedRecipe;
+        this.ingredients,
+        this.recipeId
+      ) 
+        
+        this.httpRecipes.putRecipe(updatedRecipe).subscribe(
+          ()=>{
+            this.httpRecipes.refreshStaticRecipes();
+          }
+        )
+
+
       this.route.navigate([".."],{relativeTo:this.activeRoute}); 
       
     }

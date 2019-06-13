@@ -8,18 +8,22 @@ import { NewRecipeComponent } from './recipe/new-recipe/new-recipe.component';
 import { EditRecipeComponent } from './recipe/edit-recipe/edit-recipe.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AtestComponentComponent } from './atest-component/atest-component.component';
-import { HttpRecipe } from './services/http-recipe.service';
+import { HttpRecipe } from './services/http-recipe.service'; 
+import { ServerErrorComponent } from './server-error/server-error.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  {path:'test', component:AtestComponentComponent, resolve:{recipeList:HttpRecipe}},
+  {path:'test', component:AtestComponentComponent},
   {path:'', redirectTo:'recipes', pathMatch:'full'},
-  {path:'recipes', component:RecipeComponent, children:[
+  {path:'recipes', component:RecipeComponent,resolve:{recipes:HttpRecipe}, children:[
     {path:'', component:SelectARecipeComponent},
     {path:'new', component:NewRecipeComponent},
     {path:':id', component:RecipeDetailsComponent},
     {path:':id/edit', component:EditRecipeComponent},
   ]}, 
   {path:'list', component:ShoppingListComponent},
+  {path:'register', component:RegisterComponent},
+  {path:'server-error/:error', component:ServerErrorComponent},
   {path:'**', component:PageNotFoundComponent},
 ];
 

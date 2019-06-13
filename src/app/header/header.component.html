@@ -1,32 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-dark bottom-line mainColor">
 
-  <a routerLink="/" class="navbar-brand" >
+  <a routerLink="/" class="navbar-brand">
     <fa-icon [icon]="faBookOpen" size="2x" id="brandIcon"></fa-icon>
   </a>
 
   <div class="navbar navbar-expand-sm navbar-dark mainColor">
     <ul class="navbar-nav">
+      <!-- first item -->
       <li class="nav-item">
         <a class="nav-link " routerLink="/recipes" routerLinkActive="active">Recipies</a>
       </li>
+      <!-- end first item -->
+
+      <!-- 2nd item -->
       <li class="nav-item">
         <a routerLink="/list" routerLinkActive="active" class="nav-link">Shopping List</a>
       </li>
-
-      <li ngbDropdown class="nav-item dropdown">
-        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Manage
-        </a>
-        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item"  >Save Data</a>
-          <a class="dropdown-item" >Fetch Data</a>
-        </div>
-      </li>
-
+      <!-- end -->
     </ul>
   </div>
+
+
+  <!-- logged status -->
+  <div class="ml-auto" id="loginForm" *ngIf="!userLoggedIn">
+    <app-login ></app-login> 
+  </div>
+
+  <div class="ml-auto" id="loginForm" *ngIf="userLoggedIn">
+    <app-user-details></app-user-details>
+  </div>
+
 </nav>
-
- 
-
