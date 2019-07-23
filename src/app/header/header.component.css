@@ -12,7 +12,7 @@
 }
 
 .bottom-line {
-    border-bottom: 2px solid #a3c4da;
+    border-bottom: 2px solid #172c3a;
 }
 
 .navbar-dark .navbar-nav .nav-link.active {
@@ -20,8 +20,8 @@
     font-weight: bold; 
 }
 
-.mainColor {
-    background-color: #798E9C!important; 
+.mainColor { 
+    background-image: url(../../assets/images/border.png)
 }
 
 #brandIcon:hover {
@@ -43,5 +43,5 @@
     color: rgb(0, 0, 0)!important;
     font-weight: bold;
 }
-
+ 
 

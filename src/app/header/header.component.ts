@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
+import { HttpRegisterLogin } from '../services/http-register-login.services';
 
 @Component({
   selector: 'app-header',
@@ -12,12 +13,13 @@ export class HeaderComponent implements OnInit {
   faBookOpen = faBookOpen;
   //faSpinner = faSpinner;
 
-  userLoggedIn= false;
 
 
-  constructor() { }
+
+  constructor(private httpLogin:HttpRegisterLogin) { }
 
   ngOnInit() {
+
   }
 
   

@@ -4,7 +4,7 @@
     <fa-icon [icon]="faBookOpen" size="2x" id="brandIcon"></fa-icon>
   </a>
 
-  <div class="navbar navbar-expand-sm navbar-dark mainColor">
+  <div class="navbar navbar-expand-sm navbar-dark">
     <ul class="navbar-nav">
       <!-- first item -->
       <li class="nav-item">
@@ -16,18 +16,22 @@
       <li class="nav-item">
         <a routerLink="/list" routerLinkActive="active" class="nav-link">Shopping List</a>
       </li>
+
+      <li *ngIf="httpLogin.isLogged" class="nav-item">
+          <a class="nav-link " routerLink="/my-recipes" routerLinkActive="active">My Recipes</a>
+        </li> 
       <!-- end -->
     </ul>
   </div>
 
 
   <!-- logged status -->
-  <div class="ml-auto" id="loginForm" *ngIf="!userLoggedIn">
+  <div class="ml-auto" id="loginForm" *ngIf="!httpLogin.isLogged">
     <app-login ></app-login> 
   </div>
 
-  <div class="ml-auto" id="loginForm" *ngIf="userLoggedIn">
-    <app-user-details></app-user-details>
+  <div class="ml-auto" id="loginForm" *ngIf="httpLogin.isLogged">
+    <app-user-details [email]="httpLogin.email"></app-user-details>
   </div>
 
 </nav>

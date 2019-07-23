@@ -7,12 +7,15 @@ import { throwError } from 'rxjs'
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from '../recipe/recipe-list-edit/recipe-item/recipe.model';
 import { ResolvedRecipes } from './resolved-recipes.model';
+import { PrivateRecipe } from '../my-recipies/private-recipe.model';
 
 @Injectable({providedIn:'root'})
 export class HttpRecipe implements Resolve<ResolvedRecipes>, OnInit, OnDestroy {
     //variables
     readonly URL: string = "http://localhost:8080/recipes";
+    readonly PRIV_URL: string = "http://localhost:8080/secured/recipes";
     staticRecipes: Recipe[] = [];
+    staticPrivateRecipes: PrivateRecipe[] = [];
 
     refreshRecipes: Subject<Recipe[]> = new Subject<Recipe[]>();
 
@@ -20,6 +23,13 @@ export class HttpRecipe implements Resolve<ResolvedRecipes>, OnInit, OnDestroy {
     //constructor
     constructor(private http: HttpClient, private router: ActivatedRoute, private route: Router) {
         this.refreshStaticRecipes();
+
+        //initialize private recipes if user is logged
+        if(localStorage.getItem('email')){
+            this.getPrivRecipes().subscribe((value)=>{
+                this.staticPrivateRecipes = value;
+            });
+        }
     }
 
     ngOnInit() {
@@ -39,6 +49,11 @@ export class HttpRecipe implements Resolve<ResolvedRecipes>, OnInit, OnDestroy {
 
     }
 
+    //crud private
+
+    getPrivRecipes():Observable<any> {
+        return this.http.get<PrivateRecipe[]>(this.PRIV_URL);
+    }
 
     //crud
     postRecipe(newRecipe: Recipe) {

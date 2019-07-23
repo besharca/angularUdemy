@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"; 
-import { HttpClientModule } from "@angular/common/http"
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component'; 
@@ -26,13 +26,15 @@ import { SelectARecipeComponent } from './recipe/select-a-recipe/select-a-recipe
 import { NewRecipeComponent } from './recipe/new-recipe/new-recipe.component';
 import { EditRecipeComponent } from './recipe/edit-recipe/edit-recipe.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AtestComponentComponent } from './atest-component/atest-component.component';
-import { HttpRecipe } from './services/http-recipe.service';
+import { AtestComponentComponent } from './atest-component/atest-component.component'; 
 import { LoginComponent } from './header/login/login.component';
-import { UserDetailsComponent } from './header/user-details/user-details.component';
-import { ResolvedRecipes } from './services/resolved-recipes.model';
+import { UserDetailsComponent } from './header/user-details/user-details.component'; 
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthInterceptorService } from './services/auth.interceptor';
+import { MyRecipiesComponent } from './my-recipies/my-recipies.component'; 
+import { OneRecipeComponent } from './my-recipies/one-recipe/one-recipe.component';
+import { SelectedMyRecipeComponent } from './my-recipies/selected-my-recipe/selected-my-recipe.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,10 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     UserDetailsComponent,
     ServerErrorComponent,
-    RegisterComponent
+    RegisterComponent,
+    MyRecipiesComponent,
+    OneRecipeComponent,
+    SelectedMyRecipeComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +73,12 @@ import { RegisterComponent } from './register/register.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [SelectedRecipe, ShoppingServices],
+  providers: 
+  [
+    SelectedRecipe,
+    ShoppingServices,
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptorService, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,101 @@
+<div class="row">
+  <div class="col">
+    <div class="card shadow-lg p-3 mb-5 bg-white">
+      <!-- carousel -->
+      <div>
+        <ngb-carousel *ngIf="selectedPrivateRecipe.imagePath">
+            <ng-template ngbSlide *ngFor="let image of selectedPrivateRecipe.imagePath">
+              <img [src]="image" alt="Random first slide" class="img-fluid" style="width: 100%">
+              <div class="carousel-caption">
+              </div>
+            </ng-template>
+          </ngb-carousel>
+      </div>
+      <!-- end of carousel -->
+          <div class="card-body mx-0">
+              <h2 class="card-title text-center text-uppercase">
+                 {{selectedPrivateRecipe | json}}
+              </h2>
+              <hr class="hr-primary">
+              <p class="card-text text-capitalize mx-3 text-justify text">
+                  &nbsp;&nbsp;test 2
+              </p>
+              <br>
+              <ul class="list-group">
+                <!-- *ngFor="let ingredient of currentRecipe.ingredients" ONE ROW UP -->
+                <li class="list-group-item bg-light d-flex justify-content-between align-items-center text-capitalize"> test 3
+                  <span class="badge badge-secondary badge-pill">5 </span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="card-footer bg-light text-center" *ngIf="showButton">
+                <div>
+                  <button ngbDropdown class="btn btn-secondary text-light dropdown" >
+                    <div ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      Manage Recipe
+                    </div>
+                    <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" id="dropDwn" (click)="addItems()">Add to shopping
+                        list</a>
+                      <a class="dropdown-item" id="dropDwn" [routerLink]="['/recipes',idOfRecipe, 'edit']">Edit recipe</a>
+                      <a class="dropdown-item" id="dropDwn" (click)="deleteRecipie()">Delete recipe</a>
+                    </div>
+                  </button>
+                </div>
+              </div>
+    </div> 
+  </div>
+</div>
+
+
+
+<!-- 
+
+<div class="row justify-content-center">
+  <div class="col-10">
+    <div class="card shadow-lg p-3 mb-5 bg-white">
+      <img [src]="currentRecipe.imagePath" alt=""   
+      class="card-img-top" >
+      <div class="card-body mx-0">
+        <h2 class="card-title text-center text-uppercase">
+          {{currentRecipe.name}}
+        </h2>
+        <hr class="hr-primary">
+        <p class="card-text text-capitalize mx-3 text-justify text">
+            &nbsp;&nbsp; {{currentRecipe.description}}
+        </p>
+        <br>
+        <ul class="list-group" *ngFor="let ingredient of currentRecipe.ingredients">
+          <li class="list-group-item bg-light d-flex justify-content-between align-items-center text-capitalize"> {{ingredient.name}}
+            <span class="badge badge-secondary badge-pill">{{ingredient.amount}} </span>
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="successMessage">
+        <p class="mx-3">
+          <ngb-alert type="success" (close)="successMessage = null">
+            {{ successMessage }}
+          </ngb-alert>
+        </p>
+      </div>
+      <div class="card-footer bg-light text-center" *ngIf="showButton">
+        <div>
+          <button ngbDropdown class="btn btn-secondary text-light dropdown" >
+            <div ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Manage Recipe
+            </div>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" id="dropDwn" (click)="addItems()">Add to shopping
+                list</a>
+              <a class="dropdown-item" id="dropDwn" [routerLink]="['/recipes',idOfRecipe, 'edit']">Edit recipe</a>
+              <a class="dropdown-item" id="dropDwn" (click)="deleteRecipie()">Delete recipe</a>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

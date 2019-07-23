@@ -11,4 +11,5 @@ hr {
 
   .hoverable:hover {
       font-size: larger;
+      cursor: pointer;
   }

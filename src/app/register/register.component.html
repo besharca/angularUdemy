@@ -15,8 +15,10 @@
                 <!-- E-mail -->
                 <label class="control-label" for="email">E-mail</label>
                 <div class="controls">
-                  <input formControlName="regEmail" type="text" id="regEmail" name="regEmail" placeholder="" class="form-control">
-                  <p class="help-block">Please provide your E-mail</p>
+                  <input formControlName="regEmail"  type="text" id="regEmail" name="regEmail" placeholder="" class="form-control">
+                  <p *ngIf="!registerForm.controls.regEmail.valid && 
+                  registerForm.controls.regEmail.touched" 
+                  class="help-block text-danger">Please provide your E-mail</p>
                 </div>
               </div>
 
@@ -25,7 +27,9 @@
                 <label class="control-label" for="password">Password</label>
                 <div class="controls">
                   <input type="password" formControlName="password" id="password" name="password" placeholder="" class="form-control">
-                  <p class="help-block">Password should be at least 4 characters</p>
+                  <p *ngIf="!registerForm.controls.password.valid && 
+                  registerForm.controls.password.touched" 
+                  class="help-block text-danger">Password should be at least 6 characters</p>
                 </div>
               </div>
 
@@ -35,14 +39,25 @@
                 <div class="controls">
                   <input type="password" formControlName="confirmPassword" id="password_confirm" name="password_confirm" placeholder=""
                     class="form-control">
-                  <p class="help-block">Please confirm password</p>
+                  <p *ngIf="!registerForm.controls.confirmPassword.valid && 
+                  registerForm.controls.confirmPassword.touched"
+                   class="help-block text-danger">Please confirm password</p>
                 </div>
               </div>
 
-              <div class="control-group">
+              <div class="control-group mt-5">
+                  <p *ngIf="!(registerForm.controls.confirmPassword.value === 
+                  registerForm.controls.password.value) && 
+                  registerForm.controls.password.touched &&
+                  registerForm.controls.confirmPassword.touched"
+                   class="help-block text-danger text-center">Password must match!</p>
                 <!-- Button -->
                 <div class="controls">
-                  <button class="btn btn-outline-secondary btn-block" type="submit">Register</button>
+                  <button 
+                  [disabled]="buttonStatus"
+
+                  class="btn btn-outline-secondary btn-block" 
+                  type="submit">Register</button>
                 </div>
               </div>
             </fieldset>

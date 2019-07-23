@@ -1,4 +1,4 @@
-<div ngbDropdown autoClose="outside">
+<div ngbDropdown autoClose="outside" class="ml-auto">
   <a id="dd" ngbDropdownToggle style="cursor: pointer">Profile</a>
   <div ngbDropdownMenu aria-labelledby="dd">
 
@@ -11,7 +11,7 @@
       </div>
       <div class="row justify-content-center align-content-center">
         <div class="col-xs-12">
-          <p>email@yahoo.com</p>
+          <p>{{email}}</p>
         </div>
       </div>
       <hr>
@@ -29,7 +29,9 @@
           <fa-icon [icon]="faSignOutAlt" size="xs"></fa-icon>
         </div>
         <div class="col-xs-10">
-            <p>Logout</p>
+            <a (click)="logout()">
+              Logout
+            </a> 
         </div>
       </div>
       

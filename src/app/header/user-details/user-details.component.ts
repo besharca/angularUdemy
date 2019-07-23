@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { faUser, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { HttpRegisterLogin } from 'src/app/services/http-register-login.services';
 
 @Component({
   selector: 'app-user-details',
@@ -12,9 +13,16 @@ export class UserDetailsComponent implements OnInit {
   faCog = faCog;
   faSignOutAlt = faSignOutAlt;
 
-  constructor() { }
+  @Input()
+  email:string;
+
+  constructor(private httpLogin:HttpRegisterLogin) { }
 
   ngOnInit() {
+  }
+
+  logout(){
+    this.httpLogin.logout();
   }
 
 }

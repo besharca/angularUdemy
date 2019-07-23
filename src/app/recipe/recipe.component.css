@@ -1,0 +1,10 @@
+.btn-outline:hover {
+    background-color: #588484!important;
+    color: white;
+    
+}
+
+.btn-outline {
+    border: 2px #172c3a solid;
+    font-weight: bold;
+}

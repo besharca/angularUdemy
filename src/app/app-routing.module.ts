@@ -11,10 +11,17 @@ import { AtestComponentComponent } from './atest-component/atest-component.compo
 import { HttpRecipe } from './services/http-recipe.service'; 
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { RegisterComponent } from './register/register.component';
+import { MyRecipiesComponent } from './my-recipies/my-recipies.component';
+import { AuthGuard } from './services/auth.guard';
+import { SelectedMyRecipeComponent } from './my-recipies/selected-my-recipe/selected-my-recipe.component';
 
 const routes: Routes = [
   {path:'test', component:AtestComponentComponent},
   {path:'', redirectTo:'recipes', pathMatch:'full'},
+  {path:'my-recipes', component:MyRecipiesComponent, canActivate:[AuthGuard],
+  children:[
+    {path:":id", component:SelectedMyRecipeComponent}
+  ]},
   {path:'recipes', component:RecipeComponent,resolve:{recipes:HttpRecipe}, children:[
     {path:'', component:SelectARecipeComponent},
     {path:'new', component:NewRecipeComponent},
