@@ -35,6 +35,10 @@ import { AuthInterceptorService } from './services/auth.interceptor';
 import { MyRecipiesComponent } from './my-recipies/my-recipies.component'; 
 import { OneRecipeComponent } from './my-recipies/one-recipe/one-recipe.component';
 import { SelectedMyRecipeComponent } from './my-recipies/selected-my-recipe/selected-my-recipe.component';
+import { FooterComponent } from './footer/footer.component';
+import { FooterSocialComponent } from './footer/footer-social/footer-social.component';
+import { EditMyRecipeComponent } from './my-recipies/edit-my-recipe/edit-my-recipe.component';
+import { NewMyRecipeComponent } from './my-recipies/new-my-recipe/new-my-recipe.component'; 
 
 @NgModule({
   declarations: [
@@ -60,7 +64,11 @@ import { SelectedMyRecipeComponent } from './my-recipies/selected-my-recipe/sele
     RegisterComponent,
     MyRecipiesComponent,
     OneRecipeComponent,
-    SelectedMyRecipeComponent
+    SelectedMyRecipeComponent,
+    FooterComponent,
+    FooterSocialComponent,
+    EditMyRecipeComponent,
+    NewMyRecipeComponent 
   ],
   imports: [
     BrowserModule,

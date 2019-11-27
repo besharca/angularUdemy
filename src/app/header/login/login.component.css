@@ -12,5 +12,6 @@ form {
 a, a:active, a:visited , a:hover {
     color:black;
     text-decoration: none;
+    text-shadow: 0px 0px 5px rgb(255, 255, 255);
 }
  

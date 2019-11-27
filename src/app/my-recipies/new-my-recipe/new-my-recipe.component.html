@@ -1,0 +1,154 @@
+<div class="row justify-content-center">
+  <div class="col-10">
+    <div class="card shadow-lg p-3 mb-5 bg-white  ">
+      <div class="card-body mx-0">
+        <h2 class="card-title text-center text-uppercase">
+          Please fill all the fields for a new recipe
+        </h2>
+        <hr class="hr-primary">
+        <!-- form  -->
+        <form class="form-horizontal" id="newform" [formGroup]="newForm" (ngSubmit)="onSubmit()">
+          
+          <div class="row justify-content-center mb-2">
+            <div  class="col-md-12">
+              <div class="form-group">
+                <div class="input-group mb-1 mr-sm-n1 ">
+                  <input type="text" 
+                  name="name"
+                  class="form-control-lg w-100"
+                  id="name" 
+                  placeholder="Recipe Name"
+                  formControlName="recipeName"
+                  >
+                    <span class="help-block text-danger" 
+                    
+                    >
+                    <!-- *ngIf="nameInput.invalid && nameInput.touched" -->
+                    Please select a recipe title!
+                    </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" formArrayName="recipeImages">
+            <div class="col-12">
+              <div class="row justify-content-center mb-2"
+               *ngFor="let images of newForm.get('recipeImages').controls;let imgIndex = index"
+               >
+                <div [className]="imgIndex!=0 ? 'col-9' : 'col-12'">
+                  <div class="form-group">
+                    <div class="input-group mb-1 mr-sm-n1">
+                      <input type="text"  
+                      class="form-control w-100"  
+                      fromControlName="imgIndex"
+                      placeholder="Image adress"
+                      [value]="newForm.get('recipeImages').controls[imgIndex].value"
+                      >
+                      <span class="help-block text-danger"
+                      
+                      >
+                      <!-- *ngIf="imageInput.invalid && imageInput.touched" --> 
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3" *ngIf="imgIndex!=0">
+                    <!-- remove ingredient button -->
+                    <button class="btn btn-secondary btn-block my-0"
+                    (click)="removeImage(imgIndex)" id="removeBtn"
+                    type="button">X</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <div class="form-group">
+                <div class="input-group mb-1 mr-sm-1">
+                  <textarea 
+                  name="description" 
+                  class="form-control markedInput" 
+                  id="description"
+                  placeholder="Description" 
+                  autofocus rows="4" 
+                  formControlName="recipeDescription"></textarea>
+                </div>
+                <span class="help-block text-danger" 
+                
+                >
+                <!-- *ngIf="descriptionInput.invalid && descriptionInput.touched" -->
+                  Please fill out a description for the recipe</span>
+              </div>
+            </div>
+          </div> 
+
+          
+          <div class="row">
+            <div class="col-12" formArrayName="recipeIngredients">
+              <div class="row"
+                *ngFor="let ingredient of newForm.get('recipeIngredients').controls;let i = index"
+                [formGroupName]="i">
+                  <div class="col-6">
+                    <div class="form-group has-danger w-100">
+                      <div class="input-group mb-1 mr-sm-1 ">
+                        <input  
+                        type="text" name="ingredient" class="form-control" id="ingredient"
+                        formControlName="ingredient"
+                          placeholder="New ingredient">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="form-group has-danger">
+                      <div class="input-group mb-1 mr-sm-0 ">
+                        <input 
+                        type="number" name="amount" 
+                        formControlName="amount"
+                        class="form-control w-100" id="amount" min="1">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3 ">
+                    <!-- remove ingredient button -->
+                    <button class="btn btn-secondary btn-block my-0"
+                    (click)="removeIngredient(i)" id="removeBtn"
+                    type="button">X</button>
+                  </div> 
+                </div>
+                <!-- ADD INGREDIENT BUTTON -->
+                <button  
+                class="btn btn-outline-secondary btn-block mt-4"  
+                (click)="addIngredientField()" type="button"
+                >Add ingredient</button>
+              </div>
+            </div>
+ 
+          <hr>
+          <span class="help-block text-danger" *ngIf="noIngredient">Recipe must have at least one ingredient!</span>
+          
+          <div *ngIf="successMessage" class="row">
+            <div class="col-sm-12">
+              <p class="mx-0">
+              <ngb-alert type="success" (close)="successMessage = null">
+                {{ successMessage }}
+              </ngb-alert>
+            </p>
+            </div>
+          </div>
+          <!-- create recipe button -->
+         <button  
+         class="btn btn-outline-secondary btn-block mt-4" 
+         type="submit"
+         [disabled]="newForm.invalid">Create recipe</button>
+        </form>
+        <!-- form end -->
+        <br>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

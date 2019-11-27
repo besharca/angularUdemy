@@ -2,8 +2,7 @@ import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators'
-import { tap } from 'rxjs/operators';
-import { throwError } from 'rxjs'
+import { tap } from 'rxjs/operators'; 
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from '../recipe/recipe-list-edit/recipe-item/recipe.model';
 import { ResolvedRecipes } from './resolved-recipes.model';

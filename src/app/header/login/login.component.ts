@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'; 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { HttpRegisterLogin } from 'src/app/services/http-register-login.services';
+import { HttpRegisterLogin } from 'src/app/services/http-register-login.services'; 
 
 
 @Component({
@@ -31,9 +31,10 @@ export class LoginComponent implements OnInit {
     this.httpLogin
     .login({email:this.loginForm.value.email, password:this.loginForm.value.password})
     .subscribe(
-      (response)=>{
+      (response)=>{ 
         console.log(response);
         this.loading = false;
+ 
       }
     , (err)=>{
       console.log(err);

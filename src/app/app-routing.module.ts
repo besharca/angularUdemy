@@ -13,13 +13,15 @@ import { ServerErrorComponent } from './server-error/server-error.component';
 import { RegisterComponent } from './register/register.component';
 import { MyRecipiesComponent } from './my-recipies/my-recipies.component';
 import { AuthGuard } from './services/auth.guard';
-import { SelectedMyRecipeComponent } from './my-recipies/selected-my-recipe/selected-my-recipe.component';
+import { SelectedMyRecipeComponent } from './my-recipies/selected-my-recipe/selected-my-recipe.component'; 
+import { NewMyRecipeComponent } from './my-recipies/new-my-recipe/new-my-recipe.component';
 
 const routes: Routes = [
   {path:'test', component:AtestComponentComponent},
   {path:'', redirectTo:'recipes', pathMatch:'full'},
   {path:'my-recipes', component:MyRecipiesComponent, canActivate:[AuthGuard],
   children:[
+    {path:"new", component:NewMyRecipeComponent},
     {path:":id", component:SelectedMyRecipeComponent}
   ]},
   {path:'recipes', component:RecipeComponent,resolve:{recipes:HttpRecipe}, children:[

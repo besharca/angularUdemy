@@ -14,7 +14,7 @@ export class HttpRegisterLogin implements OnInit {
     email:string;
 
     constructor(private http:HttpClient, private router:Router){
-
+        
         //check if logged
         if(localStorage.getItem("email") && localStorage.getItem("token")){
             this.isLogged=true;

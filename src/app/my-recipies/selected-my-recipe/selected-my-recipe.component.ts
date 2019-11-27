@@ -26,8 +26,7 @@ export class SelectedMyRecipeComponent implements OnInit {
     this.selectedPrivateRecipe = this.http.staticPrivateRecipes[this.recipeId];
 
     this.route.params.subscribe((routeParams)=>{
-      this.recipeId= routeParams.id;
-      console.log(routeParams.id);
+      this.recipeId= routeParams.id; 
       
       this.http.staticPrivateRecipes.forEach((value)=>{       
         if(value.id==this.recipeId){
@@ -35,10 +34,7 @@ export class SelectedMyRecipeComponent implements OnInit {
         }
       });
     });
-
-
-    this.selectedPrivateRecipe.imagePath
-    
+ 
   }
 
 }
